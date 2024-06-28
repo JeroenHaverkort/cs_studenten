@@ -1,0 +1,45 @@
+﻿<Window x:Class="MemoryWPFApp.Windows.AddImages"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MemoryWPFApp"
+        mc:Ignorable="d"
+        Title="AddImages" Height="800" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold">
+            Select Images (URLs)
+        </TextBlock>
+
+        <ListBox Grid.Row="1" Name="ImageListBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="{Binding Path=Index}" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+                        <TextBox Text="{Binding Path=Url, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" VerticalAlignment="Center" Margin="5" MinWidth="200"/>
+                        <Image Source="{Binding Path=Bitmap}" Grid.Column="2" Width="150" Height="150" Margin="5"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+            <Button Click="AddImage" Margin="5">Add Image</Button>
+            <Button Click="RemoveImage" Margin="5">Remove Image</Button>
+            <Button Click="UseStandardImages" Margin="5">Use Standard Images</Button>
+            <Button Click="SubmitImages" Margin="300,5,5,5">Submit</Button>
+        </StackPanel>
+    </Grid>
+</Window>

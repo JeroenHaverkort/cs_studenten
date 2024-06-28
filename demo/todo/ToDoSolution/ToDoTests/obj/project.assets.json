@@ -5668,23 +5668,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\johnb\\.nuget\\packages\\": {},
+    "C:\\Users\\Jeroen Haverkort\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\GIT\\OOSDD-23-24\\v1\\cs_studenten\\demo\\todo\\ToDoSolution\\ToDoTests\\ToDoTests.csproj",
+      "projectUniqueName": "C:\\Users\\Jeroen Haverkort\\Documents\\HBO-ICT\\Y2\\C#\\cs_studenten\\demo\\todo\\ToDoSolution\\ToDoTests\\ToDoTests.csproj",
       "projectName": "ToDoTests",
-      "projectPath": "E:\\GIT\\OOSDD-23-24\\v1\\cs_studenten\\demo\\todo\\ToDoSolution\\ToDoTests\\ToDoTests.csproj",
-      "packagesPath": "C:\\Users\\johnb\\.nuget\\packages\\",
-      "outputPath": "E:\\GIT\\OOSDD-23-24\\v1\\cs_studenten\\demo\\todo\\ToDoSolution\\ToDoTests\\obj\\",
+      "projectPath": "C:\\Users\\Jeroen Haverkort\\Documents\\HBO-ICT\\Y2\\C#\\cs_studenten\\demo\\todo\\ToDoSolution\\ToDoTests\\ToDoTests.csproj",
+      "packagesPath": "C:\\Users\\Jeroen Haverkort\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Jeroen Haverkort\\Documents\\HBO-ICT\\Y2\\C#\\cs_studenten\\demo\\todo\\ToDoSolution\\ToDoTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\johnb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jeroen Haverkort\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -5700,8 +5700,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\GIT\\OOSDD-23-24\\v1\\cs_studenten\\demo\\todo\\ToDoSolution\\ToDo\\ToDo.csproj": {
-              "projectPath": "E:\\GIT\\OOSDD-23-24\\v1\\cs_studenten\\demo\\todo\\ToDoSolution\\ToDo\\ToDo.csproj"
+            "C:\\Users\\Jeroen Haverkort\\Documents\\HBO-ICT\\Y2\\C#\\cs_studenten\\demo\\todo\\ToDoSolution\\ToDo\\ToDo.csproj": {
+              "projectPath": "C:\\Users\\Jeroen Haverkort\\Documents\\HBO-ICT\\Y2\\C#\\cs_studenten\\demo\\todo\\ToDoSolution\\ToDo\\ToDo.csproj"
             }
           }
         }
@@ -5710,6 +5710,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -5757,7 +5762,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

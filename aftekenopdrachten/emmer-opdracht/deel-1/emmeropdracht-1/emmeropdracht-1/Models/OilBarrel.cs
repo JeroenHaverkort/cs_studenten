@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace emmeropdracht_1.Models
 {
-    internal class OilBarrel: LiquidStorage
+    public class OilBarrel: LiquidStorage
     {
         private const int CAPACITY = 159;
         public OilBarrel() : base(CAPACITY)
