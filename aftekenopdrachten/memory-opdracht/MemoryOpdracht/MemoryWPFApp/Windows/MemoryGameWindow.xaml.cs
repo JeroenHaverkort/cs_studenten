@@ -12,6 +12,7 @@ namespace MemoryWPFApp.Windows
         private string _name;
         private MemoryLibrary.Models.MemoryGame _memoryGame;
         private ObservableCollection<GameCardViewModel> _gameCardViewModels;
+        private const int MAX_HIGHSCORE_ENTRIES = 11;
 
         public MemoryGameWindow(string name, ObservableCollection<CardImage> images)
         {
@@ -53,7 +54,7 @@ namespace MemoryWPFApp.Windows
         private void CreateGame()
         {
             var images = _images.Select(i => i.Index.ToString()).ToArray();
-            _memoryGame = new MemoryLibrary.Models.MemoryGame(_name, images, MainWindow.HighscoreRepository);
+            _memoryGame = new MemoryLibrary.Models.MemoryGame(_name, images, MainWindow.HighscoreRepository, MAX_HIGHSCORE_ENTRIES);
             _memoryGame.GameWon += MemoryGame_GameWon;
         }
 

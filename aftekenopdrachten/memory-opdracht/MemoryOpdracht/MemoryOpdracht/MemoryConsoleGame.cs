@@ -13,6 +13,7 @@ namespace MemoryConsoleApp
         public MemoryGame MemoryGame { get; set; }
         public HighscoreRepository HighscoreRepository { get; set; }
         public bool GameOver { get; set; }
+        private const int MAX_HIGHSCORE_ENTRIES = 11;
 
         public MemoryConsoleGame()
         {
@@ -27,7 +28,7 @@ namespace MemoryConsoleApp
 
             try
             {
-                MemoryGame = new MemoryGame(playerName, CARD_VALUES, HighscoreRepository);
+                MemoryGame = new MemoryGame(playerName, CARD_VALUES, HighscoreRepository, MAX_HIGHSCORE_ENTRIES);
                 MemoryGame.GameWon += OnGameWon;
                 BoardDrawingService = new BoardDrawingService(MemoryGame, HighscoreRepository);
                 BoardDrawingService.DrawHighscores();

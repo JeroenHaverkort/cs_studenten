@@ -12,14 +12,14 @@ namespace MemoryDataAccess
             _connectionstring = connectionstring;
         }
 
-        public void AddHighscore(MemoryGameScore highscore)
+        public void AddHighscore(MemoryGameScore highscore, int maxHighscoreCount)
         {
             List<MemoryGameScore> highscores = GetHighscores();
-            if(highscores.Count >= 10)
+            if(highscores.Count >= maxHighscoreCount)
             {
                 highscores.Add(highscore);
                 highscores = highscores.OrderByDescending(h => h.Score).ThenBy(h => h.AmountOfTurns).ToList();
-                highscores = highscores.Take(10).ToList();
+                highscores = highscores.Take(maxHighscoreCount).ToList();
             }
             else
             {

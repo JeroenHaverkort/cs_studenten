@@ -9,7 +9,7 @@ namespace MemoryLibrary.Interfaces
 {
     public interface IHighscoreRepository
     {
-        void AddHighscore(MemoryGameScore highscore);
+        void AddHighscore(MemoryGameScore highscore, int maxHighscoreCount);
         List<MemoryGameScore> GetHighscores();
     }
 }

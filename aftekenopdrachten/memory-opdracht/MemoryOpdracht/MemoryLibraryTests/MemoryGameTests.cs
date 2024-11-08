@@ -7,6 +7,8 @@ namespace MemoryLibraryTests
 {
     public class MemoryGameTests
     {
+        private const int MAX_HIGHSCORE_COUNT = 10;
+
         [Fact]
         public void MemoryGame_Constructor_ShouldThrowArgumentException_WhenPlayerNameIsNull()
         {
@@ -15,7 +17,7 @@ namespace MemoryLibraryTests
             var cardValues = new string[] { "A", "B", "C", "D", "E" };
             var highscoreRepo = new Mock<IHighscoreRepository>();
             // Act
-            var game = () => new MemoryGame(playerName, cardValues, highscoreRepo.Object);
+            var game = () => new MemoryGame(playerName, cardValues, highscoreRepo.Object, MAX_HIGHSCORE_COUNT);
 
             // Assert
             Assert.Throws<ArgumentException>(game);
@@ -30,7 +32,7 @@ namespace MemoryLibraryTests
             var highscoreRepo = new Mock<IHighscoreRepository>();
 
             // Act
-            var game = () => new MemoryGame(playerName, cardValues, highscoreRepo.Object);
+            var game = () => new MemoryGame(playerName, cardValues, highscoreRepo.Object, MAX_HIGHSCORE_COUNT);
 
             // Assert
             Assert.Throws<ArgumentException>(game);
@@ -45,7 +47,7 @@ namespace MemoryLibraryTests
             var cardValues = new string[] { "A", "B", "C", "D" };
 
             // Act
-            var game = () => new MemoryGame(playerName, cardValues, highscoreRepo.Object);
+            var game = () => new MemoryGame(playerName, cardValues, highscoreRepo.Object, MAX_HIGHSCORE_COUNT);
 
             // Assert
             Assert.Throws<ArgumentException>(game);
@@ -57,7 +59,7 @@ namespace MemoryLibraryTests
             // Arrange
             var cardValues = new string[] { "A", "B", "C", "D", "E" };
             var highscoreRepo = new Mock<IHighscoreRepository>();
-            var game = new MemoryGame("Player", cardValues, highscoreRepo.Object);
+            var game = new MemoryGame("Player", cardValues, highscoreRepo.Object, MAX_HIGHSCORE_COUNT);
             game.IsComplete = true;
 
             // Act
@@ -73,7 +75,7 @@ namespace MemoryLibraryTests
             // Arrange
             var cardValues = new string[] { "A", "B", "C", "D", "E" };
             var highscoreRepo = new Mock<IHighscoreRepository>();
-            var game = new MemoryGame("Player", cardValues, highscoreRepo.Object);
+            var game = new MemoryGame("Player", cardValues, highscoreRepo.Object, MAX_HIGHSCORE_COUNT);
 
             // Act
             var addPick = () => game.AddPick(-1);
@@ -88,7 +90,7 @@ namespace MemoryLibraryTests
             // Arrange
             var cardValues = new string[] { "A", "B", "C", "D", "E" };
             var highscoreRepo = new Mock<IHighscoreRepository>();
-            var game = new MemoryGame("Player", cardValues, highscoreRepo.Object);
+            var game = new MemoryGame("Player", cardValues, highscoreRepo.Object, MAX_HIGHSCORE_COUNT);
 
             // Act
             var addPick = () => game.AddPick(game.GameCards.Count);
@@ -103,7 +105,7 @@ namespace MemoryLibraryTests
             // Arrange
             var cardValues = new string[] { "A", "B", "C", "D", "E" };
             var highscoreRepo = new Mock<IHighscoreRepository>();
-            var game = new MemoryGame("Player", cardValues, highscoreRepo.Object);
+            var game = new MemoryGame("Player", cardValues, highscoreRepo.Object, MAX_HIGHSCORE_COUNT);
 
             // Act
             game.AddPick(0);
@@ -118,7 +120,7 @@ namespace MemoryLibraryTests
             // Arrange
             var cardValues = new string[] { "A", "B", "C", "D", "E" };
             var highscoreRepo = new Mock<IHighscoreRepository>();
-            var game = new MemoryGame("Player", cardValues, highscoreRepo.Object);
+            var game = new MemoryGame("Player", cardValues, highscoreRepo.Object, MAX_HIGHSCORE_COUNT);
             game.AddPick(0);
             game.AddPick(1);
 
@@ -135,7 +137,7 @@ namespace MemoryLibraryTests
             // Arrange
             var cardValues = new string[] { "A", "B", "C", "D", "E" };
             var highscoreRepo = new Mock<IHighscoreRepository>();
-            var game = new MemoryGame("Player", cardValues, highscoreRepo.Object);
+            var game = new MemoryGame("Player", cardValues, highscoreRepo.Object, MAX_HIGHSCORE_COUNT);
 
             // Act
             game.AddPick(0);
@@ -150,7 +152,7 @@ namespace MemoryLibraryTests
             // Arrange
             var cardValues = new string[] { "A", "B", "C", "D", "E" };
             var highscoreRepo = new Mock<IHighscoreRepository>();
-            var game = new MemoryGame("Player", cardValues, highscoreRepo.Object);
+            var game = new MemoryGame("Player", cardValues, highscoreRepo.Object, MAX_HIGHSCORE_COUNT);
             game.MatchedCards.Add(game.GameCards[0]);
 
             // Act
@@ -166,7 +168,7 @@ namespace MemoryLibraryTests
             // Arrange
             var cardValues = new string[] { "A", "B", "C", "D", "E" };
             var highscoreRepo = new Mock<IHighscoreRepository>();
-            var game = new MemoryGame("Player", cardValues, highscoreRepo.Object);
+            var game = new MemoryGame("Player", cardValues, highscoreRepo.Object, MAX_HIGHSCORE_COUNT);
             
             // set up a match so we can test the match logic
             game.GameCards[0].Value = "A";
@@ -187,7 +189,7 @@ namespace MemoryLibraryTests
             // Arrange
             var cardValues = new string[] { "A", "B", "C", "D", "E" };
             var highscoreRepo = new Mock<IHighscoreRepository>();
-            var game = new MemoryGame("Player", cardValues, highscoreRepo.Object);
+            var game = new MemoryGame("Player", cardValues, highscoreRepo.Object, MAX_HIGHSCORE_COUNT);
 
             game.GameCards[0].Value = "A";
             game.GameCards[1].Value = "A";
@@ -222,7 +224,7 @@ namespace MemoryLibraryTests
             // Arrange
             var cardValues = new string[] { "A", "B", "C", "D", "E" };
             var highscoreRepo = new Mock<IHighscoreRepository>();
-            var game = new MemoryGame("Player", cardValues, highscoreRepo.Object);
+            var game = new MemoryGame("Player", cardValues, highscoreRepo.Object, MAX_HIGHSCORE_COUNT);
             game.StartTime = DateTime.Now;
             game.EndTime = DateTime.Now;
 
@@ -239,7 +241,7 @@ namespace MemoryLibraryTests
             // Arrange
             var cardValues = new string[] { "A", "B", "C", "D", "E" };
             var highscoreRepo = new Mock<IHighscoreRepository>();
-            var game = new MemoryGame("Player", cardValues, highscoreRepo.Object);
+            var game = new MemoryGame("Player", cardValues, highscoreRepo.Object, MAX_HIGHSCORE_COUNT);
             game.StartTime = DateTime.Now;
             game.EndTime = DateTime.Now.AddSeconds(10);
             game.Turns.Add(new Turn());

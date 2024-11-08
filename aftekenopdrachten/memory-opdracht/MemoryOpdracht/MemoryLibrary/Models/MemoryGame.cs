@@ -23,8 +23,9 @@ namespace MemoryLibrary.Models
         public List<Card> MatchedCards { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
+        public int MaxHighscoreCount { get; set; }
 
-        public MemoryGame(string playerName, string[] cardvalues, IHighscoreRepository highscoreRepository)
+        public MemoryGame(string playerName, string[] cardvalues, IHighscoreRepository highscoreRepository, int maxHighscoreCount)
         {
             if (string.IsNullOrWhiteSpace(playerName))
                 throw new ArgumentException("Player name cannot be null or empty", nameof(playerName));
@@ -40,6 +41,7 @@ namespace MemoryLibrary.Models
             CreateGameCards(GameCards, cardvalues);
             ShuffleGameCards(GameCards);
             StartTime = DateTime.Now;
+            MaxHighscoreCount = maxHighscoreCount;
 
             HighscoreRepository = highscoreRepository;
         }
@@ -107,7 +109,7 @@ namespace MemoryLibrary.Models
                 Score = Score, 
                 AmountOfTurns = Turns.Count, 
                 PlayerName = PlayerName 
-            });
+            }, MaxHighscoreCount);
             GameWon?.Invoke(this, new GameOverEventArgs() { 
                     Score = Score, 
                     Time = CalculateSeconds()
